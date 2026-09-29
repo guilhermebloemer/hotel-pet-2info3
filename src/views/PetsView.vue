@@ -14,6 +14,15 @@ async function carregarDados() {
   tutores.value = await respostaTutores.json();
 }
 
+function nomeDoTutor(tutorId) {
+for(const tutor of tutores.value) {
+    if (tutor.id === tutorId) {
+      return tutor.nome;
+    }
+  }
+  return 'Não especificado';
+}
+
 onMounted(carregarDados);
 </script>
 
@@ -27,7 +36,7 @@ onMounted(carregarDados);
     </header>
   </div>
 
-  <table>
+  <table class="table table-striped table-hover">
     <thead>
       <th>ID</th>
       <th>Nome</th>
@@ -42,12 +51,7 @@ onMounted(carregarDados);
         <td>{{ pet.id }}</td>
         <td>{{ pet.nome }}</td>
         <td>{{ pet.especie }}</td>
-        <td>
-          {{
-            tutores.find((t) => t.id === pet.tutorId)?.nome ||
-            'Não especificado'
-          }}
-        </td>
+        <td>{{ nomeDoTutor(pet.tutorId) }}</td>
       </tr>
     </tbody>
   </table>
