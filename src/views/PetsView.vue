@@ -38,10 +38,14 @@ onMounted(carregarDados);
 
   <table class="table table-striped table-hover">
     <thead>
+      <tr>
       <th>ID</th>
       <th>Nome</th>
       <th>Espécie</th>
       <th>Tutor</th>
+      <th>Ações</th>
+      </tr>
+     
     </thead>
     <tbody>
       <tr
@@ -52,6 +56,7 @@ onMounted(carregarDados);
         <td>{{ pet.nome }}</td>
         <td>{{ pet.especie }}</td>
         <td>{{ nomeDoTutor(pet.tutorId) }}</td>
+        <td>Editar | Excluir</td>
       </tr>
     </tbody>
   </table>
