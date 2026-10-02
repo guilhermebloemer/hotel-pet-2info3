@@ -50,13 +50,13 @@ onMounted(carregarDados);
     <tbody>
       <tr
         v-for="pet in pets"
-        :key="pet.id"
-      >
+        :key="pet.id">
         <td>{{ pet.id }}</td>
         <td>{{ pet.nome }}</td>
         <td>{{ pet.especie }}</td>
         <td>{{ nomeDoTutor(pet.tutorId) }}</td>
-        <td>Editar | Excluir</td>
+        <td><RouterLink :to="`/pets/${pet.id}`">Editar</RouterLink></td>
+        <td><RouterLink :to="`/pets/${pet.id}`">Excluir</RouterLink></td>
       </tr>
     </tbody>
   </table>
