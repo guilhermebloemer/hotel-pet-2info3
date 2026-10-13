@@ -26,9 +26,9 @@
     },
     {
       "nome": "Paulo Minoso",
-      "especie": "Hotvailer",
-      "tutorId": 1,
-      "id": "roCitWC9IFk"
+      "especie": "Cachorro",
+      "tutorId": "2",
+      "id": "fd7Y5WZ7utI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

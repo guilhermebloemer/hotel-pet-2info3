@@ -20,10 +20,31 @@ for(const tutor of tutores.value) {
       return tutor.nome;
     }
   }
-  return 'Não especificado';
+  return 'Tutor não encontrado';
 }
 
 onMounted(carregarDados);
+
+async function excluirPet(petId) {
+  const confirmarExclusao = window.confirm('Tem certeza que deseja excluir este pet?');
+
+  if (!confirmarExclusao) return;
+
+  try {
+    const resposta = await fetch(`${API_URL}/pets/${petId}`, {
+      method: 'DELETE',
+    });
+
+    if (!resposta.ok) {
+      throw new Error('Erro ao excluir pet');
+    }
+
+    await carregarDados();
+  } catch (error) {
+    console.error('Erro ao excluir pet:', error);
+    alert('Não foi possível excluir o pet.');
+  }
+}
 </script>
 
 <template>
@@ -47,17 +68,17 @@ onMounted(carregarDados);
       </tr>
      
     </thead>
-    <tbody>
-      <tr
-        v-for="pet in pets"
-        :key="pet.id">
-        <td>{{ pet.id }}</td>
-        <td>{{ pet.nome }}</td>
-        <td>{{ pet.especie }}</td>
-        <td>{{ nomeDoTutor(pet.tutorId) }}</td>
-        <td><RouterLink :to="`/pets/${pet.id}`">Editar</RouterLink></td>
-        <td><RouterLink :to="`/pets/${pet.id}`">Excluir</RouterLink></td>
-      </tr>
-    </tbody>
+  <tbody>
+    <tr v-for="pet in pets" :key="pet.id">
+      <td>{{ pet.id }}</td>
+      <td>{{ pet.nome }}</td>
+      <td>{{ pet.especie }}</td>
+      <td>{{ nomeDoTutor(pet.tutorId) }}</td>
+      <td>
+        <RouterLink :to="{ name: 'detalhes-pet', params: { id: pet.id } }">Editar</RouterLink>
+        <button class="btn btn-danger" @click="excluirPet(pet.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
   </table>
 </template>
