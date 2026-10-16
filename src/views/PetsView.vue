@@ -75,7 +75,7 @@ async function excluirPet(petId) {
       <td>{{ pet.especie }}</td>
       <td>{{ nomeDoTutor(pet.tutorId) }}</td>
       <td>
-        <RouterLink :to="{ name: 'detalhes-pet', params: { id: pet.id } }">Editar</RouterLink>
+        <RouterLink :to="{ name: 'detalhes-pet', params: { id: pet.id } }">Visualizar</RouterLink>
         <button class="btn btn-danger" @click="excluirPet(pet.id)">Excluir</button>
       </td>
     </tr>

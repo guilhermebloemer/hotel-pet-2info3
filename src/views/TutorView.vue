@@ -75,7 +75,7 @@ onMounted(carregarDados);
               class="btn btn-sm btn-primary me-2"
               :to="{ name: 'detalhes-tutor', params: { id: tutor.id } }"
             >
-              Editar
+              Visualizar
             </RouterLink>
             <button
               class="btn btn-sm btn-danger"

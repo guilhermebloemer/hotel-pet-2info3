@@ -4,11 +4,6 @@
       "id": "2",
       "nome": "Carlos",
       "telefone": "47988880000"
-    },
-    {
-      "nome": "Paulo Minoso Pai",
-      "telefone": "6767676767",
-      "id": "ahb-btVOhks"
     }
   ],
   "pets": [
@@ -23,12 +18,6 @@
       "nome": "Nino",
       "especie": "Gato",
       "tutorId": "1"
-    },
-    {
-      "nome": "Paulo Minoso",
-      "especie": "Cachorro",
-      "tutorId": "2",
-      "id": "fd7Y5WZ7utI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
