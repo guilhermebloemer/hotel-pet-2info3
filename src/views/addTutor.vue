@@ -8,6 +8,10 @@ const router = useRouter();
 const novoTutor = ref({
   nome: '',
   telefone: '',
+  cpf: '',
+  email: '',
+  quantidade_animais: 0,
+  nome_dos_pets: '',
 });
 
 async function salvarTutor() {

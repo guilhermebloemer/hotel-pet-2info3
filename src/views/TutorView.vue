@@ -69,7 +69,11 @@ onMounted(carregarDados);
         >
           <td>{{ tutor.id }}</td>
           <td>{{ tutor.nome }}</td>
+          <td>{{ tutor.cpf }}</td>
           <td>{{ tutor.telefone }}</td>
+          <td>{{ tutor.email }}</td>
+          <td>{{ tutor.quantidade_animais }}</td>
+          <td>{{ tutor.nome_dos_pets }}</td>
           <td>
             <RouterLink
               class="btn btn-sm btn-primary me-2"
