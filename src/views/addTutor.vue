@@ -6,12 +6,13 @@ const API_URL = 'http://localhost:3000';
 const router = useRouter();
 
 const novoTutor = ref({
-  nome: '',
+  id: '',
   telefone: '',
   cpf: '',
   email: '',
   quantidade_animais: 0,
   nome_dos_pets: '',
+  dataNascimento: '',
 });
 
 async function salvarTutor() {
@@ -33,11 +34,29 @@ async function salvarTutor() {
       <h1 class="text-2xl font-bold">Cadastro de Tutores</h1>
       <p class="text-body-secondary mb-0">Cadastro de tutores no sistema.</p>
     </header>
+    <h2>Dados do Tutor</h2>
 
     <form
       @submit.prevent="salvarTutor"
       class="row g-3"
     >
+      <div class="col-md-6">
+        <label
+          for="idTutor"
+          class="form-label"
+        >
+          ID do Tutor
+        </label>
+        <input
+          id="idTutor"
+          v-model="novoTutor.id"
+          type="text"
+          class="form-control"
+          placeholder="Gerado automaticamente"
+          readonly
+        />
+      </div>
+
       <div class="col-md-6">
         <label
           for="nome"
@@ -50,6 +69,39 @@ async function salvarTutor() {
           type="text"
           class="form-control"
           required
+          placeholder="Digite seu nome"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label
+          for="cpf"
+          class="form-label"
+          >CPF:</label
+        >
+        <input
+          id="cpf"
+          v-model="novoTutor.cpf"
+          type="text"
+          class="form-control"
+          required
+          placeholder="Digite seu CPF"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label
+          for="email"
+          class="form-label"
+          >Email do tutor:</label
+        >
+        <input
+          id="email"
+          v-model="novoTutor.email"
+          type="email"
+          class="form-control"
+          required
+          placeholder="Digite seu email"
         />
       </div>
 
@@ -65,17 +117,145 @@ async function salvarTutor() {
           type="text"
           class="form-control"
           required
+          placeholder="(xx) xxxxx-xxxx"
+        />
+      </div>
+      <div class="col-md-6">
+        <label
+          for="dataNascimento"
+          class="form-label"
+          >Data de Nascimento:</label
+        >
+        <input
+          id="dataNascimento"
+          v-model="novoTutor.dataNascimento"
+          type="text"
+          class="form-control"
+          required
+          placeholder="dd/mm/aaaa"
         />
       </div>
 
-      <div class="col-12">
-        <button
-          type="submit"
-          class="btn btn-success"
+      <h2>Endereço</h2>
+
+      <div class="col-md-6">
+        <label
+          for="rua"
+          class="form-label"
+          >Rua</label
         >
-          Salvar Tutor
-        </button>
+        <input
+          id="rua"
+          v-model="novoTutor.rua"
+          type="text"
+          class="form-control"
+          required
+          placeholder="Digite o nome da rua"
+        />
       </div>
+
+      <div class="col-md-6">
+        <label
+          for="numero"
+          class="form-label"
+          >Número</label
+        >
+        <input
+          id="numero"
+          v-model="novoTutor.numero"
+          type="text"
+          class="form-control"
+          required
+          placeholder="Digite o número"
+        />
+      </div>
+      <div class="col-md-6">
+        <label
+          for="bairro"
+          class="form-label"
+          >Bairro</label
+        >
+        <input
+          id="bairro"
+          v-model="novoTutor.bairro"
+          type="text"
+          class="form-control"
+          required
+          placeholder="Digite o nome do bairro"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label
+          for="cidade"
+          class="form-label"
+          >Cidade</label
+        >
+        <input
+          id="cidade"
+          v-model="novoTutor.cidade"
+          type="text"
+          class="form-control"
+          required
+          placeholder="Digite o nome da cidade"
+        />
+      </div>
+
+      <div class="col-md-6">
+        <label
+          for="estado"
+          class="form-label"
+          >Estado</label
+        >
+        <div class="position-relative">
+          <select
+            id="estado"
+            v-model="novoTutor.estado"
+            class="form-control pe-5"
+            required
+          >
+            <option value="">Selecione</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="MG">MG</option>
+            <option value="PR">PR</option>
+            <option value="SC">SC</option>
+            <option value="RS">RS</option>
+            <option value="BA">BA</option>
+            <option value="PE">PE</option>
+            <option value="CE">CE</option>
+            <option value="GO">GO</option>
+          </select>
+          <span
+            class="position-absolute top-50 end-0 translate-middle-y me-3 text-secondary"
+            style="pointer-events: none"
+            >▾</span
+          >
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label
+          for="cep"
+          class="form-label"
+          >CEP</label
+        >
+        <input
+          id="cep"
+          v-model="novoTutor.cep"
+          type="text"
+          class="form-control"
+          required
+          placeholder="Digite o CEP"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-success"
+      >
+        Salvar Tutor
+      </button>
     </form>
   </div>
 </template>

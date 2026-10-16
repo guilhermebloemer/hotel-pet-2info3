@@ -4,6 +4,22 @@
       "id": "2",
       "nome": "Carlos",
       "telefone": "47988880000"
+    },
+    {
+      "id": "7NVyp_Q5584",
+      "telefone": "47991343300",
+      "cpf": "11850009929",
+      "email": "guilhermebloemers2@gmail.com",
+      "quantidade_animais": 0,
+      "nome_dos_pets": "",
+      "dataNascimento": "03/08/2009",
+      "nome": "guilherme bloemer",
+      "rua": "Suburbana",
+      "numero": "743",
+      "bairro": "Fátima",
+      "cidade": "Joinville",
+      "estado": "SC",
+      "cep": "89210770"
     }
   ],
   "pets": [
@@ -18,6 +34,12 @@
       "nome": "Nino",
       "especie": "Gato",
       "tutorId": "1"
+    },
+    {
+      "nome": "Paulo Minoso",
+      "especie": "Cachorro",
+      "tutorId": "7NVyp_Q5584",
+      "id": "u8EQE1vYdyE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

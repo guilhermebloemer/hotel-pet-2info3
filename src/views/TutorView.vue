@@ -57,8 +57,11 @@ onMounted(carregarDados);
         <tr>
           <th>ID</th>
           <th>Nome</th>
+          <th>CPF</th>
           <th>Telefone</th>
-          <th>Ações</th>
+          <th>Email</th>
+          <th>Quantidade de Animais</th>
+          <th>Nome dos Pets</th>  
         </tr>
       </thead>
 
