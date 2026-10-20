@@ -4,10 +4,15 @@ import { RouterLink } from 'vue-router';
 
 const API_URL = 'http://localhost:3000';
 const tutores = ref([]);
+const pets = ref([]);
+
 
 async function carregarDados() {
   const resposta = await fetch(`${API_URL}/tutores`);
   tutores.value = await resposta.json();
+
+  const respostaPets = await fetch(`${API_URL}/pets`);
+  pets.value = await respostaPets.json();
 }
 
 async function excluirTutor(tutorId) {
@@ -75,9 +80,24 @@ onMounted(carregarDados);
           <td>{{ tutor.cpf }}</td>
           <td>{{ tutor.telefone }}</td>
           <td>{{ tutor.email }}</td>
-          <td>{{ tutor.quantidade_animais }}</td>
-          <td>{{ tutor.nome_dos_pets }}</td>
           <td>
+            {{
+              pets.filter(
+                (pet) => String(pet.tutorId) === String(tutor.id),
+              ).length
+            }}
+          </td>
+          <td>
+            {{
+              pets
+                .filter((pet) => String(pet.tutorId) === String(tutor.id))
+                .map((pet) => pet.nome)
+                .join(', ') || 'Nenhum pet cadastrado'
+            }}
+          </td>
+
+          <td>
+
             <RouterLink
               class="btn btn-sm btn-primary me-2"
               :to="{ name: 'detalhes-tutor', params: { id: tutor.id } }"
