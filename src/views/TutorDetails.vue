@@ -131,6 +131,7 @@ onMounted(carregarDados);
           <td>{{ pet.especie }}</td>
           <td>
             <RouterLink
+              class="btn btn-sm btn-primary"
               :to="{ name: 'detalhes-pet', params: { id: pet.id } }"
             >
               Visualizar
