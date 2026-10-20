@@ -13,7 +13,26 @@ const novoTutor = ref({
   quantidade_animais: 0,
   nome_dos_pets: '',
   dataNascimento: '',
+  rua: '',
+  numero: '',
+  bairro: '',
+  cidade: '',
+  estado: '',
+  cep: '',
 });
+
+const cepApi = ref({});
+
+async function buscaCep(cep) {
+  const API_CEP = 'https://viacep.com.br/ws';
+  const respostaCep = await fetch(`${API_CEP}/${cep}/json/`);
+  cepApi.value = await respostaCep.json();
+
+  novoTutor.value.rua = cepApi.value.logradouro;
+  novoTutor.value.bairro = cepApi.value.bairro;
+  novoTutor.value.cidade = cepApi.value.localidade;
+  novoTutor.value.estado = cepApi.value.uf;
+}
 
 async function salvarTutor() {
   await fetch(`${API_URL}/tutores`, {
@@ -26,6 +45,8 @@ async function salvarTutor() {
 
   router.push('/tutores');
 }
+
+
 </script>
 
 <template>
@@ -241,13 +262,15 @@ async function salvarTutor() {
           >CEP</label
         >
         <input
-          id="cep"
-          v-model="novoTutor.cep"
-          type="text"
-          class="form-control"
-          required
-          placeholder="Digite o CEP"
-        />
+  id="cep"
+  v-model="novoTutor.cep"
+  type="text"
+  class="form-control"
+  required
+  placeholder="Digite o CEP"
+  @blur="buscaCep(novoTutor.cep)"
+/>
+
       </div>
 
       <button
